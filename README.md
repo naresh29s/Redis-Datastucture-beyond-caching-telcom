@@ -26,6 +26,9 @@ This demonstration application showcases the power of **Redis Enterprise** for m
 - 📊 **Real-Time Analytics** - Live KPIs, alerts, and operational dashboards
 - 💾 **JSON Document Storage** - Flexible schema with RedisJSON
 
+<img width="1882" height="915" alt="Deshbaord UI" src="https://github.com/user-attachments/assets/e28e5ec9-f4c9-458e-98d4-a65cff677871" />
+
+
 ### 🎯 Use Case
 
 Simulates a **West Texas Permian Basin** oil field operation with:
