@@ -3,38 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Oil & Gas Field Operations</title>
-    
+    <title>Dashboard - AT&T Network Operations</title>
+
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="header">
-        <h1>🛢️ Digital Twin System</h1>
-        <div class="subtitle">Redis Enterprise Demo for Halliburton - Real-time Digital Twin for Oil & Gas Operations</div>
+        <div class="header-content">
+            <h1><i class="fas fa-broadcast-tower"></i> AT&T Network Operations Center</h1>
+            <div class="subtitle">Redis Enterprise Demo - Real-time Network Monitoring & Field Service Management</div>
+        </div>
     </div>
 
     <!-- Navigation Menu -->
     <nav class="nav-menu">
-        <a href="dashboard.html" class="nav-link active">📊 Dashboard</a>
-        <a href="sessions.html" class="nav-link">👥 Session Management</a>
-        <a href="search.html" class="nav-link">🔍 Search Field Assets</a>
+        <div class="nav-menu-content">
+            <a href="dashboard.html" class="nav-link active"><i class="fas fa-chart-line"></i> Dashboard</a>
+            <a href="sessions.html" class="nav-link"><i class="fas fa-users"></i> Session Management</a>
+            <a href="search.html" class="nav-link"><i class="fas fa-search"></i> Search Network Assets</a>
+        </div>
     </nav>
 
     <!-- Dashboard Content -->
     <div class="dashboard-container">
         <!-- Geospatial Asset Tracking -->
         <div class="panel">
-            <h2>🗺️ Field Asset Locations</h2>
+            <h2><i class="fas fa-map-marked-alt"></i> Network Asset Locations</h2>
             <div id="map"></div>
         </div>
-        
+
         <!-- Real-time KPIs -->
         <div class="panel">
-            <h2>📊 Operational KPIs</h2>
+            <h2><i class="fas fa-chart-bar"></i> Network KPIs</h2>
             <div class="kpi-grid">
                 <div class="kpi-card">
                     <div class="kpi-value" id="total-assets">--</div>
@@ -50,22 +57,22 @@
                 </div>
                 <div class="kpi-card">
                     <div class="kpi-value" id="avg-pressure">--</div>
-                    <div class="kpi-label">Avg Pressure (PSI)</div>
+                    <div class="kpi-label">Signal Strength (dBm)</div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Sensor Data Streaming -->
         <div class="panel">
-            <h2>📡 Live Sensor Data</h2>
+            <h2><i class="fas fa-satellite-dish"></i> Live Telemetry Data</h2>
             <div class="sensor-list" id="sensor-list">
-                <div class="loading">Loading sensor data...</div>
+                <div class="loading">Loading telemetry data...</div>
             </div>
         </div>
-        
+
         <!-- Alerts and Notifications -->
         <div class="panel">
-            <h2>🚨 Active Alerts</h2>
+            <h2><i class="fas fa-exclamation-triangle"></i> Network Alerts</h2>
             <div class="sensor-list" id="alerts-list">
                 <div class="loading">Loading alerts...</div>
             </div>
@@ -74,7 +81,7 @@
         <!-- Redis Command Monitor -->
         <div class="panel">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                <h2>⚡ Redis Commands</h2>
+                <h2><i class="fas fa-terminal"></i> Redis Commands</h2>
                 <button onclick="clearDashboardCommands()"
                         style="background: #e74c3c; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.7rem;">
                     Clear History

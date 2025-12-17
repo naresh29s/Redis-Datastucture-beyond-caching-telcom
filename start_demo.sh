@@ -197,7 +197,7 @@ echo ""
 echo -e "${YELLOW}🔍 Creating Search Index...${NC}"
 
 redis-cli -h "$REDIS_HOST" -p "$REDIS_PORT" -a "$REDIS_PASSWORD" \
-    FT.CREATE idx:assets ON JSON PREFIX 1 asset: SCHEMA \
+    FT.CREATE idx:telcom:assets ON JSON PREFIX 1 telcom:asset: SCHEMA \
     '$.asset.id' AS id TAG \
     '$.asset.name' AS name TEXT \
     '$.asset.type' AS type TAG \

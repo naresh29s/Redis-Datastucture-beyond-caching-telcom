@@ -32,27 +32,27 @@ def get_assets():
         start_time = time.time()
         
         # Get all assets from geospatial index
-        command_monitor.log_command('ZRANGE', 'assets:locations', context='dashboard')
-        assets = redis_client.zrange('assets:locations', 0, -1, withscores=False)
-        
+        command_monitor.log_command('ZRANGE', 'telcom:assets:locations', context='dashboard')
+        assets = redis_client.zrange('telcom:assets:locations', 0, -1, withscores=False)
+
         if not assets:
             return jsonify({
                 'success': True,
                 'assets': [],
                 'count': 0
             })
-        
+
         # OPTIMIZATION: Use Redis pipeline to batch all commands
         # This reduces network round-trips from N to 1
         pipe = redis_client.pipeline()
-        
+
         # Queue all GEOPOS commands in the pipeline
         for asset_id in assets:
-            pipe.geopos('assets:locations', asset_id)
-        
+            pipe.geopos('telcom:assets:locations', asset_id)
+
         # Queue all JSON.GET commands in the pipeline
         for asset_id in assets:
-            pipe.execute_command('JSON.GET', f'asset:{asset_id}')
+            pipe.execute_command('JSON.GET', f'telcom:asset:{asset_id}')
         
         # Execute all commands at once (single network round-trip)
         command_monitor.log_command('PIPELINE', f'{len(assets)*2} commands', context='dashboard')
@@ -104,17 +104,17 @@ def get_asset_details(asset_id):
     """Get detailed information about a specific asset"""
     try:
         # Get asset position
-        command_monitor.log_command('GEOPOS', 'assets:locations', context='dashboard')
-        position = redis_client.geopos('assets:locations', asset_id)
-        
+        command_monitor.log_command('GEOPOS', 'telcom:assets:locations', context='dashboard')
+        position = redis_client.geopos('telcom:assets:locations', asset_id)
+
         if not position or not position[0]:
             return jsonify({'success': False, 'error': 'Asset not found'}), 404
-        
+
         lon, lat = position[0]
-        
+
         # Get asset details using RedisJSON
-        command_monitor.log_command('JSON.GET', f'asset:{asset_id}', context='dashboard')
-        asset_json = redis_client.execute_command('JSON.GET', f'asset:{asset_id}')
+        command_monitor.log_command('JSON.GET', f'telcom:asset:{asset_id}', context='dashboard')
+        asset_json = redis_client.execute_command('JSON.GET', f'telcom:asset:{asset_id}')
         
         if not asset_json:
             return jsonify({'success': False, 'error': 'Asset details not found'}), 404
@@ -157,13 +157,13 @@ def get_nearby_assets():
 
         # Use Redis GEORADIUS command
         nearby = redis_client.georadius(
-            'assets:locations', lon, lat, radius, unit='km',
+            'telcom:assets:locations', lon, lat, radius, unit='km',
             withdist=True, withcoord=True
         )
 
         nearby_assets = []
         for asset_id, distance, coords in nearby:
-            asset_info = redis_client.hgetall(f'asset:{asset_id}')
+            asset_info = redis_client.hgetall(f'telcom:asset:{asset_id}')
             nearby_assets.append({
                 'id': asset_id,
                 'name': asset_info.get('name', asset_id),
@@ -194,7 +194,7 @@ def update_asset_location(asset_id):
         lon = data['longitude']
 
         # Update geospatial location
-        redis_client.geoadd('assets:locations', (lon, lat, asset_id))
+        redis_client.geoadd('telcom:assets:locations', (lon, lat, asset_id))
 
         # Update asset details
         asset_data = {
@@ -203,7 +203,7 @@ def update_asset_location(asset_id):
             'status': data.get('status', 'active'),
             'last_update': datetime.now().isoformat()
         }
-        redis_client.hset(f'asset:{asset_id}', mapping=asset_data)
+        redis_client.hset(f'telcom:asset:{asset_id}', mapping=asset_data)
 
         return jsonify({'success': True, 'message': f'Asset {asset_id} updated'})
     except Exception as e:
@@ -217,13 +217,13 @@ def get_dashboard_kpis():
     try:
         # Get current metrics
         kpis = {
-            'total_assets': redis_client.zcard('assets:locations') or 0,
-            'active_sensors': len(redis_client.keys('sensor:latest:*')),
-            'total_alerts': redis_client.get('alerts:count') or 0,
-            'avg_temperature': redis_client.get('metrics:avg_temperature') or 0,
-            'avg_pressure': redis_client.get('metrics:avg_pressure') or 0,
-            'total_production': redis_client.get('metrics:total_production') or 0,
-            'system_uptime': redis_client.get('system:uptime') or 0
+            'total_assets': redis_client.zcard('telcom:assets:locations') or 0,
+            'active_sensors': len(redis_client.keys('telcom:sensor:latest:*')),
+            'total_alerts': redis_client.get('telcom:alerts:count') or 0,
+            'avg_temperature': redis_client.get('telcom:metrics:avg_temperature') or 0,
+            'avg_pressure': redis_client.get('telcom:metrics:avg_pressure') or 0,
+            'total_production': redis_client.get('telcom:metrics:total_production') or 0,
+            'system_uptime': redis_client.get('telcom:system:uptime') or 0
         }
 
         # Convert string values to numbers
@@ -250,8 +250,8 @@ def get_asset_kpis(asset_id):
         import random
 
         # Get asset details using RedisJSON
-        command_monitor.log_command('JSON.GET', f'asset:{asset_id}', context='dashboard')
-        asset_json = redis_client.execute_command('JSON.GET', f'asset:{asset_id}')
+        command_monitor.log_command('JSON.GET', f'telcom:asset:{asset_id}', context='dashboard')
+        asset_json = redis_client.execute_command('JSON.GET', f'telcom:asset:{asset_id}')
 
         if not asset_json:
             return jsonify({'success': False, 'error': 'Asset not found'}), 404

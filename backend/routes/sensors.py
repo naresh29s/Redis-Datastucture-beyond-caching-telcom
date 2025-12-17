@@ -30,8 +30,8 @@ def ingest_sensor_data():
     try:
         data = request.json
         sensor_id = data['sensor_id']
-        stream_key = f'sensors:{sensor_id}'
-        
+        stream_key = f'telcom:sensors:{sensor_id}'
+
         # Add to Redis Stream
         stream_id = redis_client.xadd(stream_key, {
             'timestamp': data.get('timestamp', time.time()),
@@ -41,9 +41,9 @@ def ingest_sensor_data():
             'vibration': data.get('vibration', 0),
             'location': json.dumps(data.get('location', {}))
         })
-        
+
         # Update latest sensor reading
-        redis_client.hset(f'sensor:latest:{sensor_id}', mapping=data)
+        redis_client.hset(f'telcom:sensor:latest:{sensor_id}', mapping=data)
         
         return jsonify({
             'success': True,
@@ -59,7 +59,7 @@ def ingest_sensor_data():
 def get_sensor_stream(sensor_id):
     """Get recent sensor data from stream"""
     try:
-        stream_key = f'sensors:{sensor_id}'
+        stream_key = f'telcom:sensors:{sensor_id}'
         count = int(request.args.get('count', 100))
         
         # Read from Redis Stream
@@ -93,8 +93,8 @@ def get_active_sensors():
     """Get list of active sensors with latest readings"""
     try:
         # Find all sensor keys
-        command_monitor.log_command('KEYS', 'sensor:latest:*')
-        sensor_keys = redis_client.keys('sensor:latest:*')
+        command_monitor.log_command('KEYS', 'telcom:sensor:latest:*')
+        sensor_keys = redis_client.keys('telcom:sensor:latest:*')
         sensors = []
         
         for key in sensor_keys:
@@ -123,8 +123,8 @@ def get_asset_sensors(asset_id):
     """Get sensors associated with a specific asset"""
     try:
         # Find all sensor keys
-        command_monitor.log_command('KEYS', 'sensor:latest:*', context='dashboard')
-        sensor_keys = redis_client.keys('sensor:latest:*')
+        command_monitor.log_command('KEYS', 'telcom:sensor:latest:*', context='dashboard')
+        sensor_keys = redis_client.keys('telcom:sensor:latest:*')
         asset_sensors = []
         
         for key in sensor_keys:

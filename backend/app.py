@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Oil & Gas Field Operations Demo - Backend API
-Redis Enterprise Demo for Halliburton
+AT&T Network Operations Demo - Backend API
+Redis Enterprise Demo for AT&T
 
 Features:
 1. Geospatial Asset Tracking
 2. Edge-to-Core Streaming with Redis Streams
-3. Real-Time Operational Dashboard
+3. Real-Time Network Operations Dashboard
 
 REFACTORED: Routes organized into separate blueprint modules
 """
@@ -107,12 +107,12 @@ class RedisCommandMonitor:
         key_str = str(key).lower()
         
         # Session-related patterns
-        if any(pattern in key_str for pattern in ['session:', 'sessions:active']):
+        if any(pattern in key_str for pattern in ['telcom:session:', 'telcom:sessions:active']):
             return 'session'
-        
+
         # Dashboard-related patterns
         if any(pattern in key_str for pattern in [
-            'asset:', 'assets:locations', 'sensor:', 'alerts:', 'metrics:', 'system:'
+            'telcom:asset:', 'telcom:assets:locations', 'telcom:sensor:', 'telcom:alerts:', 'telcom:metrics:', 'telcom:system:'
         ]):
             return 'dashboard'
         
@@ -214,12 +214,12 @@ class SessionManager:
     def __init__(self, redis_client, monitor):
         self.redis = redis_client
         self.monitor = monitor
-        self.session_ttl = 3600  # 1 hour session timeout
+        self.session_ttl = 604800  # 7 days (1 week) session timeout for demo purposes
 
     def create_session(self, user_id, user_data=None):
         """Create a new user session"""
         session_id = str(uuid.uuid4())
-        session_key = f'session:{session_id}'
+        session_key = f'telcom:session:{session_id}'
 
         session_data = {
             'session_id': session_id,
@@ -237,15 +237,15 @@ class SessionManager:
         self.redis.expire(session_key, self.session_ttl)
 
         # Add to active sessions set
-        self.monitor.log_command('ZADD', 'sessions:active', context='session')
-        self.redis.zadd('sessions:active', {session_id: time.time()})
+        self.monitor.log_command('ZADD', 'telcom:sessions:active', context='session')
+        self.redis.zadd('telcom:sessions:active', {session_id: time.time()})
 
         return session_id
 
     def get_session(self, session_id):
         """Get session data"""
         try:
-            session_key = f'session:{session_id}'
+            session_key = f'telcom:session:{session_id}'
             session_data = self.redis.hgetall(session_key)
 
             if session_data:
@@ -267,22 +267,22 @@ class SessionManager:
 
     def delete_session(self, session_id):
         """Delete a session"""
-        session_key = f'session:{session_id}'
+        session_key = f'telcom:session:{session_id}'
 
         self.monitor.log_command('DEL', session_key, context='session')
         self.redis.delete(session_key)
 
-        self.monitor.log_command('ZREM', 'sessions:active', context='session')
-        self.redis.zrem('sessions:active', session_id)
+        self.monitor.log_command('ZREM', 'telcom:sessions:active', context='session')
+        self.redis.zrem('telcom:sessions:active', session_id)
 
     def get_active_sessions(self):
         """Get all active sessions"""
         try:
-            session_ids = self.redis.zrange('sessions:active', 0, -1)
+            session_ids = self.redis.zrange('telcom:sessions:active', 0, -1)
             sessions = []
 
             for session_id in session_ids:
-                session_key = f'session:{session_id}'
+                session_key = f'telcom:session:{session_id}'
                 # Get session data directly without logging to avoid circular dependency
                 session_data = self.redis.hgetall(session_key)
 

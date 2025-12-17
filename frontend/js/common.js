@@ -1,4 +1,4 @@
-// Oil & Gas Field Operations - Common JavaScript Functions
+// AT&T Network Operations - Common JavaScript Functions
 
 // Configuration - Local development
 const API_BASE_URL = 'http://localhost:5001';
@@ -33,9 +33,9 @@ function initializeMap() {
             return;
         }
 
-        // Initialize Leaflet map (Texas Permian Basin)
+        // Initialize Leaflet map (Dallas-Fort Worth Metro Area)
         console.log('🗺️ Creating Leaflet map instance...');
-        map = L.map('map').setView([31.8457, -102.3676], 10);
+        map = L.map('map').setView([32.7767, -96.7970], 10);
         console.log('✅ Map instance created:', map);
 
         // Add OpenStreetMap tiles
@@ -95,7 +95,7 @@ async function loadAssets() {
         const mapElement = document.getElementById('map');
         if (mapElement && map) {
             const errorPopup = L.popup()
-                .setLatLng([31.8457, -102.3676])
+                .setLatLng([32.7767, -96.7970])
                 .setContent('<div style="color: red; font-weight: bold;">⚠️ Failed to load assets. Retrying...</div>')
                 .openOn(map);
 

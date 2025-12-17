@@ -28,8 +28,8 @@ def get_active_alerts():
     """Get active alerts and warnings"""
     try:
         # Get alerts from sorted set (by timestamp)
-        command_monitor.log_command('ZREVRANGE', 'alerts:active')
-        alerts = redis_client.zrevrange('alerts:active', 0, 9, withscores=True)
+        command_monitor.log_command('ZREVRANGE', 'telcom:alerts:active')
+        alerts = redis_client.zrevrange('telcom:alerts:active', 0, 9, withscores=True)
         
         alert_list = []
         for alert_data, timestamp in alerts:

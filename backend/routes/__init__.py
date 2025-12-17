@@ -1,5 +1,5 @@
 """
-Routes package for Oil & Gas Field Operations Demo
+Routes package for AT&T Network Operations Demo
 Contains all API endpoint blueprints organized by functionality
 """
 

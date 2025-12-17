@@ -62,11 +62,11 @@ def search_assets():
             search_query = "*"
         
         # Log the search command
-        command_monitor.log_command('FT.SEARCH', f'idx:assets {search_query}', context='search')
-        
+        command_monitor.log_command('FT.SEARCH', f'idx:telcom:assets {search_query}', context='search')
+
         # Execute search
         search_result = redis_client.execute_command(
-            'FT.SEARCH', 'idx:assets', search_query,
+            'FT.SEARCH', 'idx:telcom:assets', search_query,
             'LIMIT', offset, limit,
             'RETURN', '12',
             'id', 'name', 'type', 'manufacturer', 'model', 'status',
@@ -120,11 +120,11 @@ def get_search_suggestions():
         field = request.args.get('field', 'type')
         
         # Log the command
-        command_monitor.log_command('FT.TAGVALS', f'idx:assets {field}', context='search')
-        
+        command_monitor.log_command('FT.TAGVALS', f'idx:telcom:assets {field}', context='search')
+
         # Get tag values for the specified field
         if field in ['type', 'manufacturer', 'status', 'region', 'team']:
-            suggestions = redis_client.execute_command('FT.TAGVALS', 'idx:assets', field)
+            suggestions = redis_client.execute_command('FT.TAGVALS', 'idx:telcom:assets', field)
             return jsonify({
                 'success': True,
                 'field': field,

@@ -2,7 +2,7 @@
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🛢️ Dashboard: DOM Content Loaded');
+    console.log('📡 AT&T Network Dashboard: DOM Content Loaded');
 
     // Wait for Leaflet to be fully loaded before initializing map
     if (typeof L !== 'undefined') {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     }
 
-    console.log('🛢️ Dashboard Initialized');
+    console.log('📡 AT&T Network Dashboard Initialized');
     console.log(`📡 API Base URL: ${API_BASE_URL}`);
 });
 

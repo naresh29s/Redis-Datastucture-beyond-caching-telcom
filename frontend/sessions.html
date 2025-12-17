@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session Management - Oil & Gas Field Operations</title>
-    
+    <title>Session Management - AT&T Network Operations</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="header">
-        <h1>🛢️ Digital Twin System</h1>
-        <div class="subtitle">Redis Enterprise Demo for Halliburton - Real-time Digital Twin for Oil & Gas Operations</div>
+        <div class="header-content">
+            <h1><i class="fas fa-broadcast-tower"></i> AT&T Network Operations Center</h1>
+            <div class="subtitle">Redis Enterprise Demo - Real-time Network Monitoring & Field Service Management</div>
+        </div>
     </div>
 
     <!-- Navigation Menu -->
     <nav class="nav-menu">
-        <a href="dashboard.html" class="nav-link">📊 Dashboard</a>
-        <a href="sessions.html" class="nav-link active">👥 Session Management</a>
-        <a href="search.html" class="nav-link">🔍 Search Field Assets</a>
+        <div class="nav-menu-content">
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-chart-line"></i> Dashboard</a>
+            <a href="sessions.html" class="nav-link active"><i class="fas fa-users"></i> Session Management</a>
+            <a href="search.html" class="nav-link"><i class="fas fa-search"></i> Search Network Assets</a>
+        </div>
     </nav>
 
     <!-- Session Management Content -->
@@ -26,7 +33,7 @@
         <div class="dashboard-container" style="grid-template-columns: 1fr; grid-template-rows: auto auto;">
             <!-- Session Metrics Panel -->
             <div class="session-panel">
-                <h2>👥 Active User Sessions</h2>
+                <h2><i class="fas fa-users-cog"></i> Active User Sessions</h2>
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
                     <div class="kpi-card">
                         <div class="kpi-value" id="total-sessions">--</div>
@@ -47,7 +54,7 @@
             <!-- Redis Command Monitor for Sessions -->
             <div class="panel">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                    <h2>⚡ Redis Commands (Session Context)</h2>
+                    <h2><i class="fas fa-terminal"></i> Redis Commands (Session Context)</h2>
                     <button onclick="clearSessionCommands()"
                             style="background: #e74c3c; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 3px; cursor: pointer; font-size: 0.7rem;">
                         Clear History

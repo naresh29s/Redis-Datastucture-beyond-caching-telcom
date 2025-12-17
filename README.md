@@ -1,4 +1,4 @@
-# 🛢️ Oil & Gas Field Operations - Redis Enterprise Demo
+# 📡 AT&T Network Operations - Redis Enterprise Demo
 
 <div align="center">
 
@@ -7,7 +7,7 @@
 ![Flask](https://img.shields.io/badge/Flask-2.3+-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-**A comprehensive real-time digital twin demonstration showcasing Redis Enterprise capabilities for oil & gas field operations**
+**A comprehensive real-time network operations demonstration showcasing Redis Enterprise capabilities for telecommunications infrastructure management**
 
 [Quick Start](#-quick-start) • [Features](#-redis-features-demonstrated) • [Architecture](#-system-architecture) • [Demo](#-demo-features) • [Troubleshooting](#-troubleshooting)
 
@@ -17,25 +17,25 @@
 
 ## 📖 Project Overview
 
-This demonstration application showcases the power of **Redis Enterprise** for mission-critical oil & gas field operations. Built as a **real-time digital twin system**, it demonstrates how Redis can handle complex industrial IoT scenarios with:
+This demonstration application showcases the power of **Redis Enterprise** for mission-critical telecommunications network operations. Built as a **real-time network monitoring system**, it demonstrates how Redis can handle complex telecom infrastructure scenarios with:
 
-- 🗺️ **Geospatial Asset Tracking** - Real-time location monitoring of 14+ field assets across a 100-mile radius
-- 📡 **Edge-to-Core Data Streaming** - Continuous sensor data ingestion using Redis Streams
+- 🗺️ **Geospatial Asset Tracking** - Real-time location monitoring of 14+ network assets across a 100-mile radius
+- 📡 **Edge-to-Core Data Streaming** - Continuous telemetry data ingestion using Redis Streams
 - 🔍 **Full-Text Search** - Instant asset discovery with RediSearch
 - 👥 **Session Management** - High-performance user session handling with TTL
-- 📊 **Real-Time Analytics** - Live KPIs, alerts, and operational dashboards
+- 📊 **Real-Time Analytics** - Live KPIs, alerts, and network operations dashboards
 - 💾 **JSON Document Storage** - Flexible schema with RedisJSON
 
-<img width="1882" height="915" alt="Deshbaord UI" src="https://github.com/user-attachments/assets/e28e5ec9-f4c9-458e-98d4-a65cff677871" />
+<img width="1882" height="915" alt="Dashboard UI" src="https://github.com/user-attachments/assets/e28e5ec9-f4c9-458e-98d4-a65cff677871" />
 
 
 ### 🎯 Use Case
 
-Simulates a **West Texas Permian Basin** oil field operation with:
-- 14 distributed field assets (wells, rigs, compressors, separators, tanks)
-- Real-time sensor telemetry (temperature, pressure, flow rate, vibration)
+Simulates an **AT&T Dallas-Fort Worth Metro Network** operation with:
+- 14 distributed network assets (cell towers, base stations, routers, switches, fiber nodes, antennas, repeaters, service vehicles)
+- Real-time telemetry data (signal strength, bandwidth, latency, packet loss, temperature, optical power, link quality)
 - Geospatial tracking and proximity queries
-- Operational alerts and anomaly detection
+- Network alerts and anomaly detection
 - Multi-user session management
 
 ---
@@ -51,7 +51,7 @@ Simulates a **West Texas Permian Basin** oil field operation with:
 This automated script will:
 - ✅ Clear existing Redis data for a fresh start
 - ✅ Start the Flask backend server on port 5001
-- ✅ Initialize the data simulator with 14 field assets
+- ✅ Initialize the data simulator with 14 network assets
 - ✅ Verify all services are running correctly
 - ✅ Open the demo in your default browser
 
@@ -183,10 +183,10 @@ All configuration is managed through the `.env` file:
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/oil-gas-redis-demo.git
+git clone https://github.com/your-username/redis-telco-demo.git
 
 # Navigate to the project directory
-cd oil-gas-redis-demo
+cd redis-telco-demo
 ```
 
 ### Step 2: Install Python Dependencies
@@ -271,13 +271,13 @@ python3 field_data_simulator.py
 **Expected output:**
 ```
 ✅ Connected to Redis Cloud at your-redis-host.cloud.redislabs.com:16139
-✅ Initialized 14 field assets
-✅ Created search index: idx:assets
-🚀 Starting field data simulation...
-📊 Generating sensor data every 5 seconds...
+✅ Initialized 14 network assets
+✅ Created search index: idx:telcom:assets
+🚀 Starting network data simulation...
+📊 Generating telemetry data every 5 seconds...
 ```
 
-> 💡 **Tip:** This simulator runs continuously, generating realistic field data
+> 💡 **Tip:** This simulator runs continuously, generating realistic network telemetry data
 
 ### Step 7: Access the Web Interface
 
@@ -287,10 +287,10 @@ Open your web browser and navigate to:
 http://localhost:5001
 ```
 
-You should see the **Digital Twin System** dashboard with:
-- 🗺️ Interactive map showing field assets
+You should see the **AT&T Network Operations Center** dashboard with:
+- 🗺️ Interactive map showing network assets
 - 📊 Real-time KPIs and metrics
-- 🔔 Live operational alerts
+- 🔔 Live network alerts
 - 👥 Session management interface
 - 🔍 Asset search functionality
 
@@ -311,7 +311,7 @@ curl -s "http://localhost:5001/api/sessions" | python3 -c "import sys, json; dat
 curl -s "http://localhost:5001/api/search/assets?q=*&limit=3" | python3 -c "import sys, json; data=json.load(sys.stdin); print('✅ Search:', data.get('total', 0), 'assets indexed')"
 
 # Test Frontend
-curl -s "http://localhost:5001/" | grep -q "Digital Twin System" && echo "✅ Frontend: Serving correctly" || echo "❌ Frontend: Error"
+curl -s "http://localhost:5001/" | grep -q "AT&T Network Operations" && echo "✅ Frontend: Serving correctly" || echo "❌ Frontend: Error"
 ```
 
 **Expected Output:**
@@ -413,43 +413,43 @@ This demo showcases **five core Redis Enterprise capabilities** essential for in
 
 ### 1. 🗺️ Geospatial Queries (Redis Geo)
 
-**What it does:** Tracks real-time locations of field assets and performs proximity searches.
+**What it does:** Tracks real-time locations of network assets and performs proximity searches.
 
-**How it's used in Oil & Gas:**
-- Store latitude/longitude coordinates for 14 field assets
-- Find all assets within a specified radius (e.g., "all equipment within 50 miles of Well-001")
-- Track mobile assets (drilling rigs, service trucks) as they move
-- Optimize dispatch routing for maintenance crews
+**How it's used in Telecommunications:**
+- Store latitude/longitude coordinates for 14 network assets
+- Find all assets within a specified radius (e.g., "all equipment within 50 miles of TOWER-001")
+- Track mobile assets (service vehicles, mobile routers) as they move
+- Optimize dispatch routing for network technicians
 
 **Redis Commands Used:**
 ```redis
-GEOADD assets:locations -102.3676 31.8457 "WELL-001"
-GEORADIUS assets:locations -102.3676 31.8457 50 mi WITHDIST
-GEOPOS assets:locations "WELL-001"
+GEOADD telcom:assets:locations -96.7970 32.7767 "TOWER-001"
+GEORADIUS telcom:assets:locations -96.7970 32.7767 50 mi WITHDIST
+GEOPOS telcom:assets:locations "TOWER-001"
 ```
 
-**Demo Feature:** Interactive map showing all assets with click-to-view details
+**Demo Feature:** Interactive map showing all network assets with click-to-view details
 
 ---
 
 ### 2. 📡 Redis Streams (Edge-to-Core Data Pipeline)
 
-**What it does:** Ingests continuous sensor data from field equipment in real-time.
+**What it does:** Ingests continuous telemetry data from network equipment in real-time.
 
-**How it's used in Oil & Gas:**
-- Collect telemetry from IoT sensors (temperature, pressure, flow rate, vibration)
+**How it's used in Telecommunications:**
+- Collect telemetry from network equipment (temperature, signal strength, bandwidth, latency)
 - Buffer data at the edge before processing
 - Maintain ordered time-series data streams
 - Support multiple consumers for different analytics pipelines
 
 **Redis Commands Used:**
 ```redis
-XADD sensors:WELL-001 * temperature 185.5 pressure 2450 flow_rate 850
-XREAD COUNT 100 STREAMS sensors:WELL-001 0
-XRANGE sensors:WELL-001 - + COUNT 10
+XADD telcom:sensors:TOWER-001 * temperature 35.5 signal_strength -65 bandwidth 450
+XREAD COUNT 100 STREAMS telcom:sensors:TOWER-001 0
+XRANGE telcom:sensors:TOWER-001 - + COUNT 10
 ```
 
-**Demo Feature:** Live sensor readings updating every 5 seconds with historical stream data
+**Demo Feature:** Live telemetry readings updating every 5 seconds with historical stream data
 
 ---
 
@@ -457,17 +457,17 @@ XRANGE sensors:WELL-001 - + COUNT 10
 
 **What it does:** Stores complex asset data as JSON documents with native querying.
 
-**How it's used in Oil & Gas:**
-- Store comprehensive asset profiles (specifications, maintenance history, sensor configs)
+**How it's used in Telecommunications:**
+- Store comprehensive asset profiles (specifications, maintenance history, network configs)
 - Update specific fields without retrieving entire documents
 - Support nested data structures (location, connectivity, analytics)
 - Enable schema flexibility for different asset types
 
 **Redis Commands Used:**
 ```redis
-JSON.SET asset:WELL-001 $ '{"id":"WELL-001","type":"production_well","status":"operational"}'
-JSON.GET asset:WELL-001 $.location
-JSON.SET asset:WELL-001 $.status "maintenance"
+JSON.SET telcom:asset:TOWER-001 $ '{"id":"TOWER-001","type":"cell_tower","status":"operational"}'
+JSON.GET telcom:asset:TOWER-001 $.location
+JSON.SET telcom:asset:TOWER-001 $.status "maintenance"
 ```
 
 **Demo Feature:** Detailed asset information with nested properties and real-time updates
@@ -478,17 +478,17 @@ JSON.SET asset:WELL-001 $.status "maintenance"
 
 **What it does:** Enables instant search across all asset properties with advanced filtering.
 
-**How it's used in Oil & Gas:**
+**How it's used in Telecommunications:**
 - Search assets by name, type, manufacturer, location, or status
-- Filter by multiple criteria (e.g., "all Halliburton compressors in operational status")
+- Filter by multiple criteria (e.g., "all Ericsson cell towers in operational status")
 - Autocomplete suggestions for asset discovery
 - Aggregate and analyze asset data
 
 **Redis Commands Used:**
 ```redis
-FT.CREATE idx:assets ON JSON PREFIX 1 asset: SCHEMA $.id AS id TAG $.name AS name TEXT $.type AS type TAG
-FT.SEARCH idx:assets "@type:{compressor} @status:{operational}"
-FT.AGGREGATE idx:assets * GROUPBY 1 @type REDUCE COUNT 0 AS count
+FT.CREATE idx:telcom:assets ON JSON PREFIX 1 telcom:asset: SCHEMA $.id AS id TAG $.name AS name TEXT $.type AS type TAG
+FT.SEARCH idx:telcom:assets "@type:{cell_tower} @status:{operational}"
+FT.AGGREGATE idx:telcom:assets * GROUPBY 1 @type REDUCE COUNT 0 AS count
 ```
 
 **Demo Feature:** Search tab with real-time filtering and autocomplete
@@ -499,18 +499,18 @@ FT.AGGREGATE idx:assets * GROUPBY 1 @type REDUCE COUNT 0 AS count
 
 **What it does:** Manages user sessions with automatic expiration and real-time tracking.
 
-**How it's used in Oil & Gas:**
-- Track field operators, engineers, and managers accessing the system
+**How it's used in Telecommunications:**
+- Track network operators, engineers, and managers accessing the system
 - Automatically expire inactive sessions for security
 - Monitor concurrent users and session metrics
 - Store session data (user info, preferences, last activity)
 
 **Redis Commands Used:**
 ```redis
-HSET session:abc123 user_id "operator-42" last_activity "2024-01-15T10:30:00Z"
-EXPIRE session:abc123 3600
-TTL session:abc123
-KEYS session:*
+HSET telcom:session:abc123 user_id "operator-42" last_activity "2024-01-15T10:30:00Z"
+EXPIRE telcom:session:abc123 3600
+TTL telcom:session:abc123
+KEYS telcom:session:*
 ```
 
 **Demo Feature:** Session Management tab showing active sessions with TTL countdown
@@ -521,17 +521,17 @@ KEYS session:*
 
 **What it does:** Maintains live KPIs, metrics, and operational statistics.
 
-**How it's used in Oil & Gas:**
-- Track production rates, pressure levels, temperature averages
-- Maintain leaderboards (top producing wells, most active assets)
+**How it's used in Telecommunications:**
+- Track signal strength, bandwidth utilization, latency averages
+- Maintain leaderboards (top performing towers, most active assets)
 - Store time-series aggregations
-- Calculate operational efficiency metrics
+- Calculate network efficiency metrics
 
 **Redis Commands Used:**
 ```redis
-ZADD production:daily 850.5 "WELL-001" 720.3 "WELL-002"
-ZREVRANGE production:daily 0 9 WITHSCORES
-HINCRBY metrics:daily production_barrels 850
+ZADD telcom:bandwidth:daily 450.5 "TOWER-001" 380.2 "BASE-001"
+ZREVRANGE telcom:bandwidth:daily 0 9 WITHSCORES
+HINCRBY telcom:metrics:daily active_connections 285
 ```
 
 **Demo Feature:** Dashboard KPIs with real-time updates and trend indicators
@@ -540,7 +540,7 @@ HINCRBY metrics:daily production_barrels 850
 
 ## 🗄️ Redis Data Structures
 
-This section documents all Redis data types and key patterns used in the Oil & Gas demo application. Understanding these structures will help you explore the data in Redis and see how different modules work together.
+This section documents all Redis data types and key patterns used in the AT&T Network Operations demo application. Understanding these structures will help you explore the data in Redis and see how different modules work together.
 
 ### Overview of Data Types Used
 
@@ -560,27 +560,27 @@ This section documents all Redis data types and key patterns used in the Oil & G
 
 **Module Required:** RedisJSON 2.0+
 
-**Key Pattern:** `asset:{asset_id}`
+**Key Pattern:** `telcom:asset:{asset_id}`
 
 **Purpose:** Store comprehensive asset information as JSON documents with nested structures.
 
 **Example Keys:**
-- `asset:WELL-001`
-- `asset:RIG-ALPHA`
-- `asset:COMP-001`
-- `asset:PUMP-001`
+- `telcom:asset:TOWER-001`
+- `telcom:asset:RTR-ALPHA`
+- `telcom:asset:BASE-001`
+- `telcom:asset:SVC-001`
 
 **Data Structure:**
 ```json
 {
   "asset": {
-    "id": "WELL-001",
-    "name": "Production Well Alpha",
-    "type": "production_well",
-    "group": "West Texas Field A",
+    "id": "TOWER-001",
+    "name": "Cell Tower Downtown-001",
+    "type": "cell_tower",
+    "group": "DFW Metro Network A",
     "model": {
-      "manufacturer": "Schlumberger",
-      "model_number": "WH-7500",
+      "manufacturer": "Ericsson",
+      "model_number": "AIR-6488",
       "serial_number": "SN-87654321",
       "install_date": "2022-03-15"
     },
@@ -591,19 +591,21 @@ This section documents all Redis data types and key patterns used in the Oil & G
       "runtime_hours": 5420
     },
     "location": {
-      "latitude": 31.56,
-      "longitude": -101.92,
-      "elevation_ft": 2950,
-      "zone": "Permian Basin Zone 3",
-      "region_code": "TX-PB3"
+      "latitude": 32.78,
+      "longitude": -96.80,
+      "elevation_ft": 650,
+      "zone": "DFW Metro Zone 3",
+      "region_code": "TX-DFW3"
     },
     "metrics": {
-      "temperature_c": 85.3,
-      "pressure_psi": 2450.0,
-      "flow_rate_bbl_per_hr": 45.2,
-      "vibration_mm_s": 1.2,
-      "power_kwh": 3.5,
-      "water_cut_pct": 28.5
+      "temperature_c": 35.3,
+      "signal_strength_dbm": -65.0,
+      "bandwidth_mbps": 450.2,
+      "vibration_mm_s": 0.3,
+      "power_kwh": 12.5,
+      "active_connections": 285,
+      "latency_ms": 12.5,
+      "packet_loss_pct": 0.15
     },
     "maintenance": {
       "last_service_date": "2024-01-01",
@@ -613,14 +615,14 @@ This section documents all Redis data types and key patterns used in the Oil & G
         "code": "E-542",
         "timestamp": "2024-01-10T08:15:00Z"
       },
-      "maintenance_team": "Ops Crew A",
+      "maintenance_team": "Network Ops A",
       "contact": {
         "name": "John Doe",
-        "email": "john.doe@lumenenergy.com"
+        "email": "john.doe@att.com"
       }
     },
     "connectivity": {
-      "sensor_id": "SENSOR-WELL001",
+      "sensor_id": "SENSOR-TOWER001",
       "communication_status": "online",
       "data_source": "Modbus/TCP",
       "data_frequency": "5s",
@@ -643,19 +645,19 @@ This section documents all Redis data types and key patterns used in the Oil & G
 **Redis Commands:**
 ```redis
 # Store complete asset document
-JSON.SET asset:WELL-001 $ '{"asset":{...}}'
+JSON.SET telcom:asset:TOWER-001 $ '{"asset":{...}}'
 
 # Get entire document
-JSON.GET asset:WELL-001
+JSON.GET telcom:asset:TOWER-001
 
 # Get specific field
-JSON.GET asset:WELL-001 $.asset.location.latitude
+JSON.GET telcom:asset:TOWER-001 $.asset.location.latitude
 
 # Update specific field
-JSON.SET asset:WELL-001 $.asset.status.state "maintenance"
+JSON.SET telcom:asset:TOWER-001 $.asset.status.state "maintenance"
 
 # Get multiple fields
-JSON.GET asset:WELL-001 $.asset.name $.asset.type $.asset.status
+JSON.GET telcom:asset:TOWER-001 $.asset.name $.asset.type $.asset.status
 ```
 
 **Total Keys:** 14 (one per asset)
@@ -666,103 +668,103 @@ JSON.GET asset:WELL-001 $.asset.name $.asset.type $.asset.status
 
 **Module Required:** Built-in (Redis Geo)
 
-**Key Pattern:** `assets:locations`
+**Key Pattern:** `telcom:assets:locations`
 
-**Purpose:** Track real-time latitude/longitude coordinates of all field assets for proximity queries.
+**Purpose:** Track real-time latitude/longitude coordinates of all network assets for proximity queries.
 
 **Data Structure:**
 ```
 Sorted Set with geohash encoding:
-Member: "WELL-001"     → Coordinates: (-101.92, 31.56)
-Member: "RIG-ALPHA"    → Coordinates: (-103.45, 31.89)
-Member: "COMP-001"     → Coordinates: (-102.89, 33.12)
-Member: "PUMP-001"     → Coordinates: (-102.34, 32.45)
+Member: "TOWER-001"    → Coordinates: (-96.80, 32.78)
+Member: "RTR-ALPHA"    → Coordinates: (-96.85, 32.67)
+Member: "BASE-001"     → Coordinates: (-96.92, 32.45)
+Member: "SVC-001"      → Coordinates: (-96.82, 32.82)
 ...
 ```
 
 **Redis Commands:**
 ```redis
 # Add asset location
-GEOADD assets:locations -101.92 31.56 "WELL-001"
+GEOADD telcom:assets:locations -96.80 32.78 "TOWER-001"
 
 # Get asset position
-GEOPOS assets:locations "WELL-001"
-# Returns: ["-101.92", "31.56"]
+GEOPOS telcom:assets:locations "TOWER-001"
+# Returns: ["-96.80", "32.78"]
 
 # Find assets within radius
-GEORADIUS assets:locations -102.0 32.0 50 mi WITHDIST WITHCOORD
+GEORADIUS telcom:assets:locations -96.80 32.78 50 mi WITHDIST WITHCOORD
 # Returns all assets within 50 miles with distances and coordinates
 
 # Find nearby assets
-GEORADIUSBYMEMBER assets:locations "WELL-001" 25 mi WITHDIST
-# Returns assets within 25 miles of WELL-001
+GEORADIUSBYMEMBER telcom:assets:locations "TOWER-001" 25 mi WITHDIST
+# Returns assets within 25 miles of TOWER-001
 
 # Get distance between assets
-GEODIST assets:locations "WELL-001" "RIG-ALPHA" mi
-# Returns: "52.3" (miles)
+GEODIST telcom:assets:locations "TOWER-001" "RTR-ALPHA" mi
+# Returns: "8.3" (miles)
 ```
 
 **Total Keys:** 1 (contains all 14 asset locations)
 
 ---
 
-### 3. 📡 Redis Streams (Sensor Data)
+### 3. 📡 Redis Streams (Telemetry Data)
 
 **Module Required:** Built-in (Redis Streams)
 
-**Key Pattern:** `sensors:{sensor_id}`
+**Key Pattern:** `telcom:sensors:{sensor_id}`
 
-**Purpose:** Store time-series sensor telemetry data as ordered streams for real-time monitoring and historical analysis.
+**Purpose:** Store time-series telemetry data as ordered streams for real-time monitoring and historical analysis.
 
 **Example Keys:**
-- `sensors:TEMP-001`
-- `sensors:PRESS-001`
-- `sensors:FLOW-001`
-- `sensors:VIB-001`
+- `telcom:sensors:TEMP-001`
+- `telcom:sensors:SIGNAL-001`
+- `telcom:sensors:BAND-001`
+- `telcom:sensors:VIB-001`
 
 **Data Structure:**
 ```
 Stream entries (time-ordered):
 1704451200000-0 {
-  "sensor_id": "TEMP-001",
+  "sensor_id": "SIGNAL-001",
   "timestamp": "1704451200.5",
-  "temperature": "85.3",
-  "pressure": "0",
-  "flow_rate": "0",
-  "vibration": "0",
-  "location": "RIG-ALPHA"
+  "temperature": "35.3",
+  "signal_strength": "-65",
+  "bandwidth": "450",
+  "vibration": "0.3",
+  "location": "TOWER-001"
 }
 1704451205000-0 {
-  "sensor_id": "TEMP-001",
+  "sensor_id": "SIGNAL-001",
   "timestamp": "1704451205.5",
-  "temperature": "86.1",
-  "pressure": "0",
-  "flow_rate": "0",
-  "vibration": "0",
-  "location": "RIG-ALPHA"
+  "temperature": "35.8",
+  "signal_strength": "-64",
+  "bandwidth": "455",
+  "vibration": "0.3",
+  "location": "TOWER-001"
 }
 ...
 ```
 
 **Redis Commands:**
 ```redis
-# Add sensor reading to stream
-XADD sensors:TEMP-001 * sensor_id TEMP-001 timestamp 1704451200.5 temperature 85.3 location RIG-ALPHA
+# Add telemetry reading to stream
+XADD telcom:sensors:SIGNAL-001 * sensor_id SIGNAL-001 timestamp 1704451200.5 temperature 35.3 signal_strength -65 location TOWER-001
 
 # Read latest entries
-XREAD COUNT 10 STREAMS sensors:TEMP-001 0
+XREAD COUNT 10 STREAMS telcom:sensors:TEMP-001 0
 
 # Read range of entries
-XRANGE sensors:TEMP-001 - + COUNT 100
+XRANGE telcom:sensors:TEMP-001 - + COUNT 100
 
 # Get stream length
-XLEN sensors:TEMP-001
+XLEN telcom:sensors:TEMP-001
 
 # Read from multiple streams
-XREAD COUNT 5 STREAMS sensors:TEMP-001 sensors:PRESS-001 0 0
+XREAD COUNT 5 STREAMS telcom:sensors:TEMP-001 telcom:sensors:PRESS-001 0 0
 
 # Trim old entries (keep last 1000)
-XTRIM sensors:TEMP-001 MAXLEN ~ 1000
+XTRIM telcom:sensors:TEMP-001 MAXLEN ~ 1000
 ```
 
 **Total Keys:** 8+ (one per sensor type)
@@ -773,15 +775,15 @@ XTRIM sensors:TEMP-001 MAXLEN ~ 1000
 
 **Module Required:** Built-in (Redis Hashes)
 
-**Key Pattern:** `sensor:latest:{sensor_id}`
+**Key Pattern:** `telcom:sensor:latest:{sensor_id}`
 
 **Purpose:** Store the most recent sensor reading for quick access without scanning streams.
 
 **Example Keys:**
-- `sensor:latest:TEMP-001`
-- `sensor:latest:PRESS-001`
-- `sensor:latest:FLOW-001`
-- `sensor:latest:VIB-001`
+- `telcom:sensor:latest:TEMP-001`
+- `telcom:sensor:latest:PRESS-001`
+- `telcom:sensor:latest:FLOW-001`
+- `telcom:sensor:latest:VIB-001`
 
 **Data Structure:**
 ```
@@ -792,28 +794,28 @@ temperature: "85.3"
 pressure: "0"
 flow_rate: "0"
 vibration: "0"
-location: "RIG-ALPHA"
+location: "RTR-ALPHA"
 ```
 
 **Redis Commands:**
 ```redis
 # Set all fields at once
-HSET sensor:latest:TEMP-001 sensor_id TEMP-001 timestamp 1704451200.5 temperature 85.3 location RIG-ALPHA
+HSET telcom:sensor:latest:TEMP-001 sensor_id TEMP-001 timestamp 1704451200.5 temperature 35.3 location TOWER-001
 
 # Get all fields
-HGETALL sensor:latest:TEMP-001
+HGETALL telcom:sensor:latest:TEMP-001
 
 # Get specific field
-HGET sensor:latest:TEMP-001 temperature
+HGET telcom:sensor:latest:TEMP-001 temperature
 
 # Get multiple fields
-HMGET sensor:latest:TEMP-001 temperature pressure vibration
+HMGET telcom:sensor:latest:TEMP-001 temperature pressure vibration
 
 # Update single field
-HSET sensor:latest:TEMP-001 temperature 86.1
+HSET telcom:sensor:latest:TEMP-001 temperature 36.1
 
 # Check if field exists
-HEXISTS sensor:latest:TEMP-001 temperature
+HEXISTS telcom:sensor:latest:TEMP-001 temperature
 ```
 
 **Total Keys:** 8+ (one per sensor)
@@ -824,42 +826,42 @@ HEXISTS sensor:latest:TEMP-001 temperature
 
 **Module Required:** Built-in (Redis Sorted Sets)
 
-**Key Pattern:** `alerts:active`, `sessions:active`, `redis:commands:{context}`
+**Key Pattern:** `telcom:alerts:active`, `telcom:sessions:active`, `redis:commands:{context}`
 
 **Purpose:** Maintain ordered collections with scores for ranking, time-based ordering, and leaderboards.
 
 #### A. Active Alerts
 
-**Key:** `alerts:active`
+**Key:** `telcom:alerts:active`
 
 **Data Structure:**
 ```
 Sorted Set (score = timestamp):
-Score: 1704451200.5  Member: '{"id":"TEMP_HIGH_TEMP-001_1704451200","type":"temperature_high","message":"High Temperature Detected","details":"95.3°F exceeds normal operating range","location":"RIG-ALPHA","sensor_id":"TEMP-001","severity":"warning","timestamp":1704451200.5}'
+Score: 1704451200.5  Member: '{"id":"TEMP_HIGH_TEMP-001_1704451200","type":"temperature_high","message":"High Temperature Detected","details":"55°C exceeds normal operating range","location":"RTR-ALPHA","sensor_id":"TEMP-001","severity":"warning","timestamp":1704451200.5}'
 
-Score: 1704451205.8  Member: '{"id":"PRESS_HIGH_PRESS-001_1704451205","type":"pressure_high","message":"Pressure Threshold Exceeded","details":"2850 PSI above safe operating limits","location":"WELL-001","sensor_id":"PRESS-001","severity":"high","timestamp":1704451205.8}'
+Score: 1704451205.8  Member: '{"id":"LATENCY_HIGH_LAT-001_1704451205","type":"latency_high","message":"High Latency Detected","details":"45ms exceeds normal operating range","location":"RTR-ALPHA","sensor_id":"LAT-001","severity":"high","timestamp":1704451205.8}'
 ...
 ```
 
 **Redis Commands:**
 ```redis
 # Add alert
-ZADD alerts:active 1704451200.5 '{"id":"TEMP_HIGH_...","message":"High Temperature",...}'
+ZADD telcom:alerts:active 1704451200.5 '{"id":"TEMP_HIGH_...","message":"High Temperature",...}'
 
 # Get recent alerts (newest first)
-ZREVRANGE alerts:active 0 9 WITHSCORES
+ZREVRANGE telcom:alerts:active 0 9 WITHSCORES
 
 # Get alerts in time range
-ZRANGEBYSCORE alerts:active 1704451000 1704452000
+ZRANGEBYSCORE telcom:alerts:active 1704451000 1704452000
 
 # Count alerts
-ZCARD alerts:active
+ZCARD telcom:alerts:active
 
 # Remove old alerts (keep last 50)
-ZREMRANGEBYRANK alerts:active 0 -51
+ZREMRANGEBYRANK telcom:alerts:active 0 -51
 
 # Get alert by rank
-ZREVRANGE alerts:active 0 0
+ZREVRANGE telcom:alerts:active 0 0
 ```
 
 #### B. Active Sessions
@@ -869,15 +871,15 @@ ZREVRANGE alerts:active 0 0
 **Data Structure:**
 ```
 Sorted Set (score = last_activity_timestamp):
-Score: 1704451200.5  Member: "session:abc123def456"
-Score: 1704451205.8  Member: "session:xyz789ghi012"
+Score: 1704451200.5  Member: "telcom:session:abc123def456"
+Score: 1704451205.8  Member: "telcom:session:xyz789ghi012"
 ...
 ```
 
 **Redis Commands:**
 ```redis
 # Add session
-ZADD sessions:active 1704451200.5 session:abc123def456
+ZADD telcom:sessions:active 1704451200.5 telcom:session:abc123def456
 
 # Get active sessions
 ZRANGE sessions:active 0 -1 WITHSCORES
@@ -908,48 +910,48 @@ ZCARD sessions:active
 
 **Module Required:** Built-in (Redis Strings)
 
-**Key Pattern:** `metrics:{metric_name}`, `system:{property}`, `alerts:count`
+**Key Pattern:** `telcom:metrics:{metric_name}`, `telcom:system:{property}`, `telcom:alerts:count`
 
 **Purpose:** Store simple scalar values for dashboard KPIs and system metrics.
 
 **Example Keys:**
-- `metrics:avg_temperature`
-- `metrics:avg_pressure`
-- `metrics:total_production`
-- `system:uptime`
-- `alerts:count`
+- `telcom:metrics:avg_temperature`
+- `telcom:metrics:avg_pressure`
+- `telcom:metrics:total_production`
+- `telcom:system:uptime`
+- `telcom:alerts:count`
 
 **Data Structure:**
 ```
-Key: metrics:avg_temperature    Value: "85.7"
-Key: metrics:avg_pressure       Value: "2450.3"
-Key: metrics:total_production   Value: "9250"
-Key: system:uptime              Value: "1704451200"
-Key: alerts:count               Value: "42"
+Key: telcom:metrics:avg_temperature    Value: "85.7"
+Key: telcom:metrics:avg_pressure       Value: "2450.3"
+Key: telcom:metrics:total_production   Value: "9250"
+Key: telcom:system:uptime              Value: "1704451200"
+Key: telcom:alerts:count               Value: "42"
 ```
 
 **Redis Commands:**
 ```redis
 # Set metric value
-SET metrics:avg_temperature 85.7
+SET telcom:metrics:avg_temperature 85.7
 
 # Get metric value
-GET metrics:avg_temperature
+GET telcom:metrics:avg_temperature
 
 # Increment counter
-INCR alerts:count
+INCR telcom:alerts:count
 
 # Increment by amount
-INCRBY metrics:total_production 150
+INCRBY telcom:metrics:total_production 150
 
 # Set with expiration
-SETEX metrics:temp_cache 3600 "85.7"
+SETEX telcom:metrics:temp_cache 3600 "85.7"
 
 # Get multiple values
-MGET metrics:avg_temperature metrics:avg_pressure metrics:total_production
+MGET telcom:metrics:avg_temperature telcom:metrics:avg_pressure telcom:metrics:total_production
 
 # Set multiple values
-MSET metrics:avg_temperature 85.7 metrics:avg_pressure 2450.3
+MSET telcom:metrics:avg_temperature 85.7 telcom:metrics:avg_pressure 2450.3
 ```
 
 **Total Keys:** 10+ string keys
@@ -960,13 +962,13 @@ MSET metrics:avg_temperature 85.7 metrics:avg_pressure 2450.3
 
 **Module Required:** Built-in (Redis Hashes)
 
-**Key Pattern:** `session:{session_id}`
+**Key Pattern:** `telcom:session:{session_id}`
 
 **Purpose:** Store user session data with automatic expiration (TTL) for security and resource management.
 
 **Example Keys:**
-- `session:abc123def456ghi789`
-- `session:xyz789abc123def456`
+- `telcom:session:abc123def456ghi789`
+- `telcom:session:xyz789abc123def456`
 
 **Data Structure:**
 ```
@@ -974,8 +976,8 @@ Hash fields:
 session_id: "abc123def456ghi789"
 user_id: "operator-42"
 username: "John Doe"
-role: "Field Operator"
-email: "john.doe@lumenenergy.com"
+role: "Network Operator"
+email: "john.doe@att.com"
 login_time: "2024-01-15T10:00:00Z"
 last_activity: "2024-01-15T10:30:00Z"
 ip_address: "192.168.1.100"
@@ -985,25 +987,25 @@ user_agent: "Mozilla/5.0..."
 **Redis Commands:**
 ```redis
 # Create session with all fields
-HSET session:abc123 session_id abc123 user_id operator-42 username "John Doe" role "Field Operator"
+HSET telcom:session:abc123 session_id abc123 user_id operator-42 username "John Doe" role "Network Operator"
 
 # Set TTL (auto-expire after 1 hour)
-EXPIRE session:abc123 3600
+EXPIRE telcom:session:abc123 3600
 
 # Get all session data
-HGETALL session:abc123
+HGETALL telcom:session:abc123
 
 # Update last activity
-HSET session:abc123 last_activity "2024-01-15T10:35:00Z"
+HSET telcom:session:abc123 last_activity "2024-01-15T10:35:00Z"
 
 # Refresh TTL
-EXPIRE session:abc123 3600
+EXPIRE telcom:session:abc123 3600
 
 # Check remaining TTL
-TTL session:abc123
+TTL telcom:session:abc123
 
 # Delete session (logout)
-DEL session:abc123
+DEL telcom:session:abc123
 ```
 
 **Total Keys:** 30+ (varies with active users)
@@ -1014,13 +1016,13 @@ DEL session:abc123
 
 **Module Required:** Built-in (Redis Hashes)
 
-**Key Pattern:** `asset:{asset_id}` (for simple fields)
+**Key Pattern:** `telcom:asset:{asset_id}` (for simple fields)
 
 **Purpose:** Store simplified asset data as hashes for quick updates (used alongside RedisJSON for location updates).
 
 **Example Keys:**
-- `asset:WELL-001`
-- `asset:SVC-001` (service truck)
+- `telcom:asset:TOWER-001`
+- `telcom:asset:SVC-001` (service vehicle)
 
 **Data Structure:**
 ```
@@ -1042,19 +1044,19 @@ last_update: "2024-01-15T10:30:00Z"
 **Redis Commands:**
 ```redis
 # Update asset location (for mobile assets)
-HSET asset:SVC-001 latitude 32.15 longitude -102.48 last_update "2024-01-15T10:31:00Z"
+HSET telcom:asset:SVC-001 latitude 32.15 longitude -102.48 last_update "2024-01-15T10:31:00Z"
 
 # Get asset data
-HGETALL asset:SVC-001
+HGETALL telcom:asset:SVC-001
 
 # Update multiple fields
-HMSET asset:SVC-001 latitude 32.15 longitude -102.48 status active
+HMSET telcom:asset:SVC-001 latitude 32.15 longitude -102.48 status active
 
 # Get specific fields
-HMGET asset:SVC-001 latitude longitude status
+HMGET telcom:asset:SVC-001 latitude longitude status
 ```
 
-**Note:** This is used for mobile assets (service trucks, drilling rigs) that need frequent location updates. Full asset details are stored in RedisJSON.
+**Note:** This is used for mobile assets (service vehicles) that need frequent location updates. Full asset details are stored in RedisJSON.
 
 **Total Keys:** 2-3 (only for mobile assets)
 
@@ -1064,15 +1066,15 @@ HMGET asset:SVC-001 latitude longitude status
 
 **Module Required:** RediSearch 2.0+
 
-**Index Name:** `idx:assets`
+**Index Name:** `idx:telcom:assets`
 
 **Purpose:** Enable full-text search and filtering across all asset JSON documents.
 
 **Index Schema:**
 ```redis
-FT.CREATE idx:assets
+FT.CREATE idx:telcom:assets
   ON JSON
-  PREFIX 1 asset:
+  PREFIX 1 telcom:asset:
   SCHEMA
     $.asset.id AS id TAG
     $.asset.name AS name TEXT WEIGHT 2.0
@@ -1095,31 +1097,31 @@ FT.CREATE idx:assets
 **Search Examples:**
 ```redis
 # Search by name (full-text)
-FT.SEARCH idx:assets "@name:production"
+FT.SEARCH idx:telcom:assets "@name:production"
 
 # Filter by type
-FT.SEARCH idx:assets "@type:{production_well}"
+FT.SEARCH idx:telcom:assets "@type:{cell_tower}"
 
 # Multiple filters
-FT.SEARCH idx:assets "@type:{compressor} @status:{active}"
+FT.SEARCH idx:telcom:assets "@type:{router} @status:{active}"
 
 # Search with wildcards
-FT.SEARCH idx:assets "@name:well*"
+FT.SEARCH idx:telcom:assets "@name:tower*"
 
 # Aggregate by type
-FT.AGGREGATE idx:assets * GROUPBY 1 @type REDUCE COUNT 0 AS count
+FT.AGGREGATE idx:telcom:assets * GROUPBY 1 @type REDUCE COUNT 0 AS count
 
 # Search with limit and offset
-FT.SEARCH idx:assets "@manufacturer:{Schlumberger}" LIMIT 0 10
+FT.SEARCH idx:telcom:assets "@manufacturer:{Ericsson}" LIMIT 0 10
 
 # Get total count
-FT.SEARCH idx:assets * LIMIT 0 0
+FT.SEARCH idx:telcom:assets * LIMIT 0 0
 ```
 
 **Index Statistics:**
 ```redis
 # Get index info
-FT.INFO idx:assets
+FT.INFO idx:telcom:assets
 
 # Returns:
 # - Number of documents indexed: 14
@@ -1138,18 +1140,18 @@ Here's a summary of all Redis keys used in the demo:
 
 | Key Pattern | Type | Count | Example |
 |-------------|------|-------|---------|
-| `asset:{id}` | RedisJSON | 14 | `asset:WELL-001` |
-| `assets:locations` | Geospatial | 1 | `assets:locations` |
-| `sensors:{sensor_id}` | Stream | 8+ | `sensors:TEMP-001` |
-| `sensor:latest:{sensor_id}` | Hash | 8+ | `sensor:latest:TEMP-001` |
-| `alerts:active` | Sorted Set | 1 | `alerts:active` |
-| `sessions:active` | Sorted Set | 1 | `sessions:active` |
-| `session:{session_id}` | Hash | 30+ | `session:abc123` |
-| `metrics:{metric}` | String | 5+ | `metrics:avg_temperature` |
-| `system:{property}` | String | 2+ | `system:uptime` |
-| `alerts:count` | String | 1 | `alerts:count` |
+| `telcom:asset:{id}` | RedisJSON | 14 | `telcom:asset:TOWER-001` |
+| `telcom:assets:locations` | Geospatial | 1 | `telcom:assets:locations` |
+| `telcom:sensors:{sensor_id}` | Stream | 8+ | `telcom:sensors:TEMP-001` |
+| `telcom:sensor:latest:{sensor_id}` | Hash | 8+ | `telcom:sensor:latest:TEMP-001` |
+| `telcom:alerts:active` | Sorted Set | 1 | `telcom:alerts:active` |
+| `telcom:sessions:active` | Sorted Set | 1 | `telcom:sessions:active` |
+| `telcom:session:{session_id}` | Hash | 30+ | `telcom:session:abc123` |
+| `telcom:metrics:{metric}` | String | 5+ | `telcom:metrics:avg_temperature` |
+| `telcom:system:{property}` | String | 2+ | `telcom:system:uptime` |
+| `telcom:alerts:count` | String | 1 | `telcom:alerts:count` |
 | `redis:commands:{context}` | Sorted Set | 3+ | `redis:commands:geospatial` |
-| `idx:assets` | Search Index | 1 | `idx:assets` |
+| `idx:telcom:assets` | Search Index | 1 | `idx:telcom:assets` |
 
 **Total Approximate Keys:** 75-100 (varies with active sessions and sensor data)
 
@@ -1170,33 +1172,33 @@ redis-cli -h "$REDIS_HOST" -p "$REDIS_PORT" -a "$REDIS_PASSWORD"
 KEYS *
 
 # Count keys by pattern
-KEYS asset:* | wc -l
-KEYS sensor:* | wc -l
-KEYS session:* | wc -l
+KEYS telcom:asset:* | wc -l
+KEYS telcom:sensor:* | wc -l
+KEYS telcom:session:* | wc -l
 
 # View a JSON document
-JSON.GET asset:WELL-001
+JSON.GET telcom:asset:TOWER-001
 
 # View geospatial data
-ZRANGE assets:locations 0 -1 WITHSCORES
+ZRANGE telcom:assets:locations 0 -1 WITHSCORES
 
 # View stream data
-XRANGE sensors:TEMP-001 - + COUNT 5
+XRANGE telcom:sensors:TEMP-001 - + COUNT 5
 
 # View latest sensor reading
-HGETALL sensor:latest:TEMP-001
+HGETALL telcom:sensor:latest:TEMP-001
 
 # View active alerts
-ZREVRANGE alerts:active 0 9
+ZREVRANGE telcom:alerts:active 0 9
 
 # View active sessions
 ZRANGE sessions:active 0 -1
 
 # Search assets
-FT.SEARCH idx:assets "@type:{production_well}"
+FT.SEARCH idx:telcom:assets "@type:{cell_tower}"
 
 # Get metrics
-MGET metrics:avg_temperature metrics:avg_pressure metrics:total_production
+MGET telcom:metrics:avg_temperature telcom:metrics:avg_signal_strength telcom:metrics:total_bandwidth
 ```
 
 #### Using RedisInsight
@@ -1216,7 +1218,7 @@ MGET metrics:avg_temperature metrics:avg_pressure metrics:total_production
 This demo follows Redis best practices:
 
 1. **Use appropriate data types** - JSON for complex documents, Hashes for simple key-value, Streams for time-series
-2. **Consistent key naming** - Use colons (`:`) as separators, e.g., `asset:WELL-001`
+2. **Consistent key naming** - Use colons (`:`) as separators with namespace prefix, e.g., `telcom:asset:TOWER-001`
 3. **Set TTLs for temporary data** - Sessions expire automatically after 1 hour
 4. **Trim streams** - Keep only recent sensor data to manage memory
 5. **Index for search** - Use RediSearch for complex queries instead of KEYS
@@ -1241,7 +1243,7 @@ graph TB
 
     subgraph "Backend Layer"
         API[Flask REST API<br/>Port 5001]
-        SIM[Data Simulator<br/>Field Operations]
+        SIM[Data Simulator<br/>Network Operations]
     end
 
     subgraph "Redis Enterprise Cloud"
@@ -1387,19 +1389,19 @@ graph TB
 #### 📊 Data Simulator
 - **Technology:** Python 3.8+, Redis client
 - **Responsibilities:**
-  - Initialize 14 field assets on startup
+  - Initialize 14 network assets on startup
   - Generate realistic sensor data every 5 seconds
   - Simulate asset movements and status changes
   - Create operational alerts and anomalies
   - Populate Redis Streams with telemetry
 - **Location:** `simulators/field_data_simulator.py`
 - **Asset Types:**
-  - Production Wells (3)
-  - Pump Jacks (3)
-  - Drilling Rigs (2)
-  - Compressors (2)
-  - Separators (2)
-  - Storage Tanks, Pipelines, Control Stations
+  - Cell Towers (3)
+  - Base Stations (2)
+  - Routers (3)
+  - Switches (2)
+  - Fiber Nodes (2)
+  - Antennas, Repeaters, Service Vehicles
 
 #### 🗄️ Redis Enterprise Cloud
 - **Modules Required:**
@@ -1440,9 +1442,9 @@ sequenceDiagram
 
     Note over Simulator,Redis: Continuous Data Generation
     loop Every 5 seconds
-        Simulator->>Redis: XADD sensors:* (stream data)
-        Simulator->>Redis: JSON.SET asset:* (update status)
-        Simulator->>Redis: GEOADD (update locations)
+        Simulator->>Redis: XADD telcom:sensors:* (stream data)
+        Simulator->>Redis: JSON.SET telcom:asset:* (update status)
+        Simulator->>Redis: GEOADD telcom:assets:locations (update locations)
     end
 
     Note over Browser,Redis: Real-time Updates
@@ -1464,37 +1466,37 @@ sequenceDiagram
 **What you'll see:**
 
 1. **Real-Time KPIs (7 metrics)**
-   - 🛢️ Total Production: Barrels per day across all wells
-   - 🌡️ Average Temperature: Field-wide temperature monitoring
-   - 💨 Average Pressure: System pressure levels (PSI)
-   - 📈 Flow Rate: Combined flow rate (barrels/day)
+   - � Average Signal Strength: Network-wide signal quality (dBm)
+   - 🌡️ Average Temperature: Equipment temperature monitoring (°C)
+   - � Total Bandwidth: Combined network bandwidth (Mbps)
+   - � Active Connections: Total active network connections
    - ⚠️ Active Alerts: Current operational warnings
    - ✅ Operational Assets: Assets in working condition
    - 📍 Total Assets: Complete asset inventory
 
 2. **Interactive Geospatial Map**
-   - 🗺️ Leaflet.js map centered on West Texas Permian Basin
+   - 🗺️ Leaflet.js map centered on Dallas-Fort Worth Metro Area
    - 📍 14 asset markers color-coded by type:
-     - 🔵 Blue: Wells and pump jacks
-     - 🟢 Green: Compressors and separators
-     - 🔴 Red: Drilling rigs
-     - 🟡 Yellow: Tanks and pipelines
+     - 🔵 Blue: Cell towers and base stations
+     - 🟢 Green: Routers and switches
+     - 🔴 Red: Fiber nodes and antennas
+     - 🟡 Yellow: Repeaters and service vehicles
    - 🖱️ Click any marker to view detailed asset information
-   - 🔍 Zoom and pan to explore the field
+   - 🔍 Zoom and pan to explore the network
 
 3. **Live Operational Alerts**
    - ⚠️ Real-time alerts with severity levels (warning, critical)
    - 🕐 Timestamp for each alert
-   - 📝 Detailed alert messages
+   - 📝 Detailed alert messages (signal degradation, high latency, equipment temperature)
    - 🔄 Auto-refresh every 5 seconds
 
 4. **Asset Details Panel**
    - Click any map marker to see:
      - Asset ID and name
-     - Type and manufacturer
+     - Type and manufacturer (Ericsson, Nokia, Samsung, Cisco)
      - Current status (operational, maintenance, offline)
      - Location coordinates
-     - Latest sensor readings
+     - Latest network metrics (signal strength, bandwidth, latency, packet loss)
      - Maintenance schedule
 
 **Screenshot Placeholder:**
@@ -1544,7 +1546,7 @@ sequenceDiagram
 
 ---
 
-### 🔍 Search Field Assets Tab
+### 🔍 Search Network Assets Tab
 
 **What you'll see:**
 
@@ -1554,16 +1556,16 @@ sequenceDiagram
    - ⚡ Instant results (sub-millisecond queries)
 
 2. **Advanced Filters**
-   - 🏷️ Asset Type: Filter by well, rig, compressor, etc.
+   - 🏷️ Asset Type: Filter by cell tower, router, base station, etc.
    - 📊 Status: Operational, maintenance, offline
    - 📍 Location: Search by region or coordinates
-   - 🏭 Manufacturer: Halliburton, Schlumberger, Baker Hughes, etc.
+   - 🏭 Manufacturer: Ericsson, Nokia, Samsung, Cisco
 
 3. **Search Results**
    - 📋 Comprehensive asset information
    - 📍 Geolocation data
    - 🔧 Technical specifications
-   - 📊 Operational metrics
+   - 📊 Network metrics (signal strength, bandwidth, latency)
    - 🕐 Last updated timestamp
 
 4. **Result Statistics**
@@ -1580,11 +1582,11 @@ sequenceDiagram
 
 **Example Searches:**
 ```
-"compressor"           → Find all compressor assets
-"Halliburton"          → Find all Halliburton equipment
+"cell_tower"           → Find all cell tower assets
+"Ericsson"             → Find all Ericsson equipment
 "operational"          → Find all operational assets
-"WELL-001"             → Find specific well
-"@type:{drilling_rig}" → Advanced tag search
+"TOWER-001"            → Find specific tower
+"@type:{router}"       → Advanced tag search
 ```
 
 **Screenshot Placeholder:**
@@ -1598,40 +1600,44 @@ sequenceDiagram
 
 | Asset Type | Count | Asset IDs | Purpose |
 |------------|-------|-----------|---------|
-| **Pump Jacks** | 3 | PUMP-001, PUMP-002, PUMP-003 | Primary oil extraction |
-| **Production Wells** | 3 | WELL-001, WELL-002, WELL-003 | Oil/gas production |
-| **Drilling Rigs** | 2 | RIG-ALPHA, RIG-BETA | New well drilling |
-| **Compressors** | 2 | COMP-001, COMP-002 | Gas compression |
-| **Separators** | 2 | SEP-001, SEP-002 | Oil-gas-water separation |
-| **Storage Tanks** | 1 | TANK-001 | Crude oil storage |
-| **Pipelines** | 1 | PIPE-001 | Transportation |
+| **Cell Towers** | 3 | TOWER-001, TOWER-002, TOWER-003 | Primary wireless coverage |
+| **Base Stations** | 2 | BASE-001, BASE-002 | Mobile network connectivity |
+| **Routers** | 3 | RTR-ALPHA, RTR-BETA, RTR-GAMMA | Network routing |
+| **Switches** | 2 | SW-001, SW-002 | Network switching |
+| **Fiber Nodes** | 2 | FIBER-001, FIBER-002 | Fiber optic distribution |
+| **Antennas** | 1 | ANT-001 | Signal transmission |
+| **Repeaters** | 1 | REP-001 | Signal amplification |
+| **Service Vehicles** | 1 | SVC-001 | Mobile maintenance |
 
 ### Geographic Coverage
 
-- **Region:** West Texas Permian Basin
-- **Center Point:** 32.02°N, -102.20°W
-- **Coverage Radius:** ~100 miles (1.5 degrees lat/lon)
-- **Asset Distribution:** Realistic field layout across the basin
-- **Real-time Tracking:** GPS coordinates updated every 5 seconds for mobile assets
+- **Region:** Dallas-Fort Worth Metro Area
+- **Center Point:** 32.7767°N, -96.7970°W
+- **Coverage Radius:** ~50 km (0.5 degrees lat/lon)
+- **Asset Distribution:** Realistic network layout across the metro area
+- **Real-time Tracking:** GPS coordinates updated every 5 seconds for mobile assets (service vehicles)
 
-### Sensor Data Generated
+### Network Metrics Generated
 
 Each asset generates realistic telemetry:
 
-| Sensor Type | Range | Update Frequency | Purpose |
+| Metric Type | Range | Update Frequency | Purpose |
 |-------------|-------|------------------|---------|
-| **Temperature** | 150-220°F | 5 seconds | Equipment health monitoring |
-| **Pressure** | 1800-3200 PSI | 5 seconds | System pressure tracking |
-| **Flow Rate** | 500-1200 bbl/day | 5 seconds | Production measurement |
-| **Vibration** | 0.5-3.5 mm/s | 5 seconds | Mechanical health |
+| **Signal Strength** | -90 to -40 dBm | 5 seconds | Network quality monitoring |
+| **Bandwidth** | 50-5000 Mbps | 5 seconds | Throughput tracking |
+| **Latency** | 5-50 ms | 5 seconds | Network performance |
+| **Packet Loss** | 0.01-2.0% | 5 seconds | Connection quality |
+| **Temperature** | 20-55°C | 5 seconds | Equipment health monitoring |
+| **Active Connections** | 30-500 | 5 seconds | Load monitoring |
+| **Optical Power** | -15 to -5 dBm | 5 seconds | Fiber link quality |
+| **Link Quality** | 85-99.9% | 5 seconds | Connection reliability |
 
 ### Manufacturers Represented
 
-- **Schlumberger** - Wells, pump jacks, drilling rigs
-- **Halliburton** - Pump jacks, wells, separators
-- **Baker Hughes** - Pump jacks, wells, separators
-- **NOV (National Oilwell Varco)** - Drilling rigs, compressors
-- **Weatherford** - Compressors
+- **Ericsson** - Cell towers, base stations, routers
+- **Nokia** - Base stations, switches, fiber nodes
+- **Samsung** - Cell towers, antennas, repeaters
+- **Cisco** - Routers, switches, network equipment
 
 ---
 
@@ -1699,7 +1705,7 @@ redis-cli -h <host> -p <port> -a <password> MODULE LIST
 ps aux | grep field_data_simulator.py
 
 # Step 2: Check Redis for data
-redis-cli -h <host> -p <port> -a <password> KEYS asset:*
+redis-cli -h <host> -p <port> -a <password> KEYS telcom:asset:*
 
 # Step 3: Restart data simulator
 cd simulators
@@ -1745,7 +1751,7 @@ redis-cli -h <host> -p <port> -a <password> FT._LIST
 
 # Step 2: Recreate search index
 redis-cli -h <host> -p <port> -a <password> << EOF
-FT.CREATE idx:assets ON JSON PREFIX 1 asset: SCHEMA
+FT.CREATE idx:telcom:assets ON JSON PREFIX 1 telcom:asset: SCHEMA
   $.id AS id TAG
   $.name AS name TEXT
   $.type AS type TAG
@@ -1770,7 +1776,7 @@ python3 app.py
 curl -X POST http://localhost:5001/api/redis/commands/clear
 
 # Step 2: Reduce number of sessions
-redis-cli -h <host> -p <port> -a <password> KEYS "session:*" | xargs redis-cli -h <host> -p <port> -a <password> DEL
+redis-cli -h <host> -p <port> -a <password> KEYS "telcom:session:*" | xargs redis-cli -h <host> -p <port> -a <password> DEL
 
 # Step 3: Restart backend server
 ```
@@ -1787,7 +1793,7 @@ redis-cli -h <host> -p <port> -a <password> KEYS "session:*" | xargs redis-cli -
 redis-cli -h <host> -p <port> -a <password> INFO memory
 
 # Step 2: Clear old stream data
-redis-cli -h <host> -p <port> -a <password> KEYS "sensors:*" | xargs redis-cli -h <host> -p <port> -a <password> DEL
+redis-cli -h <host> -p <port> -a <password> KEYS "telcom:sensors:*" | xargs redis-cli -h <host> -p <port> -a <password> DEL
 
 # Step 3: Restart data simulator
 pkill -f field_data_simulator.py
@@ -1807,7 +1813,7 @@ python3 field_data_simulator.py
 **Solution:**
 ```bash
 # Step 1: Check if geospatial data exists
-redis-cli -h <host> -p <port> -a <password> GEOPOS assets:locations WELL-001
+redis-cli -h <host> -p <port> -a <password> GEOPOS telcom:assets:locations TOWER-001
 
 # Step 2: Verify API returns asset data
 curl http://localhost:5001/api/assets | python3 -m json.tool
@@ -1928,12 +1934,12 @@ If you're still experiencing issues:
 
 1. **Open Dashboard Tab**
    - Point out 7 real-time KPIs updating every 5 seconds
-   - Highlight production metrics (barrels/day, pressure, temperature)
+   - Highlight network metrics (signal strength, bandwidth, active connections)
 
 2. **Explore the Map**
-   - Show 14 assets distributed across West Texas
-   - Click on different asset types (wells, rigs, compressors)
-   - Demonstrate geospatial queries: "Find all assets within 50 miles"
+   - Show 14 assets distributed across Dallas-Fort Worth Metro Area
+   - Click on different asset types (cell towers, routers, base stations)
+   - Demonstrate geospatial queries: "Find all assets within 50 km"
 
 3. **Live Alerts**
    - Point out real-time operational alerts
@@ -1964,8 +1970,8 @@ If you're still experiencing issues:
 #### Part 3: Search & Discovery (3 minutes)
 
 1. **Switch to Search Tab**
-   - Type "compressor" → instant results
-   - Try "Halliburton" → filter by manufacturer
+   - Type "cell_tower" → instant results
+   - Try "Ericsson" → filter by manufacturer
    - Use advanced filters (type, status, location)
 
 2. **Show Search Performance**
@@ -2015,11 +2021,11 @@ If you're still experiencing issues:
 - [Redis Streams Guide](https://redis.io/docs/data-types/streams/) - Real-time data streaming
 - [Redis Geospatial](https://redis.io/commands/geoadd/) - Location-based queries
 
-### Oil & Gas Industry Resources
+### Telecommunications Industry Resources
 
-- [Permian Basin Overview](https://en.wikipedia.org/wiki/Permian_Basin_(North_America)) - Geographic context
-- [Digital Twin in Oil & Gas](https://www.halliburton.com/en/about-us/digital-transformation) - Industry use cases
-- [IoT in Energy Sector](https://www.iea.org/reports/digitalisation-and-energy) - Market trends
+- [5G Network Architecture](https://www.ericsson.com/en/5g) - Network infrastructure overview
+- [Digital Twin in Telecom](https://www.nokia.com/networks/digital-automation-cloud/) - Industry use cases
+- [IoT in Telecommunications](https://www.cisco.com/c/en/us/solutions/internet-of-things/overview.html) - Market trends
 
 ### Related Demos
 
@@ -2042,8 +2048,8 @@ Contributions are welcome! Here's how you can help:
 
 ```bash
 # Fork and clone the repository
-git clone https://github.com/your-username/oil-gas-redis-demo.git
-cd oil-gas-redis-demo
+git clone https://github.com/your-username/redis-telco-demo.git
+cd redis-telco-demo
 
 # Create a feature branch
 git checkout -b feature/your-feature-name
@@ -2085,7 +2091,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ## 🙏 Acknowledgments
 
 - **Redis Labs** - For Redis Enterprise Cloud platform
-- **Halliburton** - Industry partnership and use case validation
+- **AT&T** - Industry partnership and use case validation
 - **Leaflet.js** - Open-source mapping library
 - **Flask** - Python web framework
 - **Open Source Community** - For continuous support and contributions
@@ -2096,9 +2102,9 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 | Property | Value |
 |----------|-------|
-| **Project Name** | Oil & Gas Field Operations - Redis Enterprise Demo |
+| **Project Name** | AT&T Network Operations - Redis Enterprise Demo |
 | **Version** | 1.0.0 |
-| **Last Updated** | November 2024 |
+| **Last Updated** | December 2024 |
 | **Python Version** | 3.8+ |
 | **Redis Version** | 7.0+ |
 | **License** | MIT |
