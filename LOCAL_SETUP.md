@@ -1,4 +1,4 @@
-# 🛢️ Oil & Gas Field Operations Demo - Local Setup
+# 📡 Hello-Network Operations Demo - Local Setup
 
 ## Quick Start Guide
 

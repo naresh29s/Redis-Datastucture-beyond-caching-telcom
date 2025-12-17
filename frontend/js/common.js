@@ -1,4 +1,4 @@
-// AT&T Network Operations - Common JavaScript Functions
+// Hello-Network Operations - Common JavaScript Functions
 
 // Configuration - Local development
 const API_BASE_URL = 'http://localhost:5001';

@@ -1,4 +1,4 @@
-# 📡 AT&T Network Operations - Redis Enterprise Demo
+# 📡 Hello-Network Operations - Redis Enterprise Demo
 
 <div align="center">
 
@@ -31,7 +31,7 @@ This demonstration application showcases the power of **Redis Enterprise** for m
 
 ### 🎯 Use Case
 
-Simulates an **AT&T Dallas-Fort Worth Metro Network** operation with:
+Simulates a **Hello-Network Dallas-Fort Worth Metro Network** operation with:
 - 14 distributed network assets (cell towers, base stations, routers, switches, fiber nodes, antennas, repeaters, service vehicles)
 - Real-time telemetry data (signal strength, bandwidth, latency, packet loss, temperature, optical power, link quality)
 - Geospatial tracking and proximity queries
@@ -287,7 +287,7 @@ Open your web browser and navigate to:
 http://localhost:5001
 ```
 
-You should see the **AT&T Network Operations Center** dashboard with:
+You should see the **Hello-Network Operations Center** dashboard with:
 - 🗺️ Interactive map showing network assets
 - 📊 Real-time KPIs and metrics
 - 🔔 Live network alerts
@@ -311,7 +311,7 @@ curl -s "http://localhost:5001/api/sessions" | python3 -c "import sys, json; dat
 curl -s "http://localhost:5001/api/search/assets?q=*&limit=3" | python3 -c "import sys, json; data=json.load(sys.stdin); print('✅ Search:', data.get('total', 0), 'assets indexed')"
 
 # Test Frontend
-curl -s "http://localhost:5001/" | grep -q "AT&T Network Operations" && echo "✅ Frontend: Serving correctly" || echo "❌ Frontend: Error"
+curl -s "http://localhost:5001/" | grep -q "Hello-Network Operations" && echo "✅ Frontend: Serving correctly" || echo "❌ Frontend: Error"
 ```
 
 **Expected Output:**
@@ -540,7 +540,7 @@ HINCRBY telcom:metrics:daily active_connections 285
 
 ## 🗄️ Redis Data Structures
 
-This section documents all Redis data types and key patterns used in the AT&T Network Operations demo application. Understanding these structures will help you explore the data in Redis and see how different modules work together.
+This section documents all Redis data types and key patterns used in the Hello-Network Operations demo application. Understanding these structures will help you explore the data in Redis and see how different modules work together.
 
 ### Overview of Data Types Used
 
@@ -618,7 +618,7 @@ This section documents all Redis data types and key patterns used in the AT&T Ne
       "maintenance_team": "Network Ops A",
       "contact": {
         "name": "John Doe",
-        "email": "john.doe@att.com"
+        "email": "john.doe@hello-network.com"
       }
     },
     "connectivity": {
@@ -977,7 +977,7 @@ session_id: "abc123def456ghi789"
 user_id: "operator-42"
 username: "John Doe"
 role: "Network Operator"
-email: "john.doe@att.com"
+email: "john.doe@hello-network.com"
 login_time: "2024-01-15T10:00:00Z"
 last_activity: "2024-01-15T10:30:00Z"
 ip_address: "192.168.1.100"
@@ -2091,7 +2091,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ## 🙏 Acknowledgments
 
 - **Redis Labs** - For Redis Enterprise Cloud platform
-- **AT&T** - Industry partnership and use case validation
+- **Hello-Network** - Industry partnership and use case validation
 - **Leaflet.js** - Open-source mapping library
 - **Flask** - Python web framework
 - **Open Source Community** - For continuous support and contributions
@@ -2102,7 +2102,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 | Property | Value |
 |----------|-------|
-| **Project Name** | AT&T Network Operations - Redis Enterprise Demo |
+| **Project Name** | Hello-Network Operations - Redis Enterprise Demo |
 | **Version** | 1.0.0 |
 | **Last Updated** | December 2024 |
 | **Python Version** | 3.8+ |

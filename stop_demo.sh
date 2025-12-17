@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Oil & Gas Field Operations - Redis Enterprise Demo Stop Script
+# Hello-Network Operations - Redis Enterprise Demo Stop Script
 # This script stops all demo processes cleanly
 
 set -e  # Exit on any error
@@ -12,7 +12,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🛑 Stopping Oil & Gas Field Operations Demo${NC}"
+echo -e "${BLUE}🛑 Stopping Hello-Network Operations Demo${NC}"
 echo -e "${BLUE}============================================${NC}"
 echo ""
 

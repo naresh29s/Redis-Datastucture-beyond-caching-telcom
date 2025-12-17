@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-AT&T Network Operations Demo - Backend API
-Redis Enterprise Demo for AT&T
+Hello-Network Operations Demo - Backend API
+Redis Enterprise Demo for Hello-Network
 
 Features:
 1. Geospatial Asset Tracking

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AT&T Network Operations Data Simulator
+Hello-Network Operations Data Simulator
 Generates realistic telecommunications network data for Redis Enterprise demo
 
 Simulates:
@@ -123,11 +123,11 @@ class AssetSimulator:
 
         maintenance_teams = ['Network Ops A', 'Network Ops B', 'Network Ops C', 'Field Service Alpha', 'Tower Maintenance Team']
         contacts = [
-            {'name': 'John Doe', 'email': 'john.doe@att.com'},
-            {'name': 'Sarah Johnson', 'email': 'sarah.johnson@att.com'},
-            {'name': 'Mike Wilson', 'email': 'mike.wilson@att.com'},
-            {'name': 'Lisa Chen', 'email': 'lisa.chen@att.com'},
-            {'name': 'David Rodriguez', 'email': 'david.rodriguez@att.com'}
+            {'name': 'John Doe', 'email': 'john.doe@hello-network.com'},
+            {'name': 'Sarah Johnson', 'email': 'sarah.johnson@hello-network.com'},
+            {'name': 'Mike Wilson', 'email': 'mike.wilson@hello-network.com'},
+            {'name': 'Lisa Chen', 'email': 'lisa.chen@hello-network.com'},
+            {'name': 'David Rodriguez', 'email': 'david.rodriguez@hello-network.com'}
         ]
 
         for config in asset_configs:
@@ -604,7 +604,7 @@ class MetricsSimulator:
 
 def main():
     """Start all simulators"""
-    logger.info("🚀 Starting AT&T Network Operations Data Simulator")
+    logger.info("🚀 Starting Hello-Network Operations Data Simulator")
 
     try:
         # Test Redis connection

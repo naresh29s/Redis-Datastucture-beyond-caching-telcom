@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Oil & Gas Field Operations - Redis Enterprise Demo Startup Script
+# Hello-Network Operations - Redis Enterprise Demo Startup Script
 # This script automates the complete demo initialization process
 
 set -e  # Exit on any error
@@ -28,7 +28,7 @@ fi
 BACKEND_PORT="${BACKEND_PORT:-5001}"
 DEMO_URL="http://localhost:${BACKEND_PORT}"
 
-echo -e "${BLUE}🛢️  Oil & Gas Field Operations - Redis Enterprise Demo${NC}"
+echo -e "${BLUE}� Hello-Network Operations - Redis Enterprise Demo${NC}"
 echo -e "${BLUE}================================================================${NC}"
 echo ""
 
@@ -264,7 +264,7 @@ if ! verify_api "$DEMO_URL/api/search/assets?q=*&limit=3" "Search API"; then
 fi
 
 # Test Frontend
-if curl -s "$DEMO_URL/" | grep -q "Oil & Gas Field Operations"; then
+if curl -s "$DEMO_URL/" | grep -q "Hello-Network Operations"; then
     print_status "Frontend: Serving correctly"
 else
     print_error "Frontend: Failed to load"
