@@ -26,7 +26,8 @@ This demonstration application showcases the power of **Redis Enterprise** for m
 - 📊 **Real-Time Analytics** - Live KPIs, alerts, and network operations dashboards
 - 💾 **JSON Document Storage** - Flexible schema with RedisJSON
 
-<img width="1882" height="915" alt="Dashboard UI" src="https://github.com/user-attachments/assets/e28e5ec9-f4c9-458e-98d4-a65cff677871" />
+<img width="1458" height="620" alt="Screenshot 2025-12-17 at 2 50 38 PM" src="https://github.com/user-attachments/assets/677b9e43-191f-4d72-936e-df65ac1944a1" />
+<img width="1432" height="824" alt="Screenshot 2025-12-17 at 2 50 51 PM" src="https://github.com/user-attachments/assets/a5f52c1a-5245-4b39-814b-a18fc43b3074" />
 
 
 ### 🎯 Use Case
