@@ -1501,12 +1501,6 @@ sequenceDiagram
      - Maintenance schedule
 
 **Screenshot Placeholder:**
-```
-[Dashboard showing KPIs, map with 14 assets, and live alerts panel]
-```
-<img width="1881" height="593" alt="1" src="https://github.com/user-attachments/assets/b4d11b77-cead-4ac9-9486-9e3dcc102565" />
-<img width="1908" height="926" alt="2" src="https://github.com/user-attachments/assets/2567197a-1c72-43f5-ab63-43d809c55e02" />
-<img width="966" height="410" alt="3" src="https://github.com/user-attachments/assets/4c6da4ec-ea45-456c-9965-06126fab7ba9" />
 
 ---
 
